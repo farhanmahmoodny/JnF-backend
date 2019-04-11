@@ -1,4 +1,4 @@
 class Sale < ApplicationRecord
-  has_many :books
-  has_many :users
+  belongs_to :book
+  belongs_to :user
 end
