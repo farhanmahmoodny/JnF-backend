@@ -3,9 +3,20 @@ class UsersController < ApplicationController
     @users = User.all
     render json:@users
   end
+
   def create
     @user = User.create(user_params)
-    render json: @user
+
+    if @user.valid?
+      token = JWT.encode({user_id: @user.id}, "secret")
+      render json: { user: username: @user.username}, token: token}, status: :created
+    else
+      render json: { error: 'failed to create user' }, status: :not_acceptable
+    end
+  end
+
+  def get_user
+    byebug
   end
 
   private
