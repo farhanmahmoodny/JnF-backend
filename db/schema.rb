@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2019_04_11_160707) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
+    t.string "genre"
+    t.string "synopsis"
     t.string "img_url"
     t.float "price"
     t.datetime "created_at", null: false
@@ -35,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_160707) do
     t.string "name"
     t.string "address"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
