@@ -5,8 +5,15 @@ class SalesController < ApplicationController
   end
 
   def create
-    @sale = Sale.find(params[:id])
-    byebug
-    render json: @sale
+    @sale = params[:book_id].map { |bookId|  Sale.create(user_id: params[:user_id],book_id: bookId)}
+    # @sale = Sale.create(sales_parmas)
+    render json: @sales
   end
+
+  private
+
+  def sales_parmas
+    params.require(:sale).permit(:user_id, :book_id)
+  end
+
 end
