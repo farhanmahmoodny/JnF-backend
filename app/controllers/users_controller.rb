@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
-      token = JWT.encode({user_id: @user.id}, "secret")
-      render json: { user: username: @user.username}, token: token}, status: :created
+      # token = JWT.encode({user_id: @user.id}, "secret")
+      render json: {name: @user.name}, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
