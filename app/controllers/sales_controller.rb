@@ -5,8 +5,14 @@ class SalesController < ApplicationController
   end
 
   def create
-    @sale = Sale.find(params[:id])
-    byebug
+    @sale = Sale.create(sales_params)
+    # byebug
     render json: @sale
+  end
+
+  private
+
+  def sales_params
+    params.require(:sale).permit(:user_id, :book_id)
   end
 end

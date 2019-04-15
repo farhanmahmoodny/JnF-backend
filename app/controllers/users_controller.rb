@@ -9,14 +9,14 @@ class UsersController < ApplicationController
 
     if @user.valid?
       # token = JWT.encode({user_id: @user.id}, "secret")
-      render json: {name: @user.name}, status: :created
+      render json: {id: @user.id, name: @user.name}, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
   end
 
   def get_user
-    byebug
+    # byebug
   end
 
   private
