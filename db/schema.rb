@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_160707) do
 
   create_table "sales", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_id", default: [], null: false, array: true
+    t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
